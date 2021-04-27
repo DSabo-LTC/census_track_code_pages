@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title>Data Collaborative</title>
+
+	<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/smoothness/jquery-ui.css" />
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="https://cdn.datacollaborative.com/js/dc-util/DCUtil.min.js"></script>
+
+	<script type="text/javascript">
+		$(function onload(){
+			$.getScript('https://cdn.datacollaborative.com/js/dialog-to-page/v1/dialogToPage.min.js', function(){
+				urlParams = {
+					bundle: {
+						targetScript: 'https://cdn.datacollaborative.com/js/data-entry-dialog/DataEntryDialog.min.js',
+						className: 'DataEntryDialog',
+						options: {
+							quickbase: {
+								realm: window.location.host.split('.')[0],
+								appToken: 'yarcxddbmap3kuuyv4fcgearkh'
+							},
+
+							locale: {
+								title: 'Add Resident Tasks',
+								instructions: '',
+
+								saveBtn: 'Save',
+								saveNextBtn: 'Save & Next',
+								cancelBtn: 'Close'
+							},
+
+							options: {
+								autoLoadFirstItem: false,
+								clearFormAfterSearch: true,
+								displayToggleBtns: true,
+								displayViewRecord: true,
+								enableSearch: true,
+								pagination: 500,
+								reloadAfterSave: true,
+								recordListInitialWidth: '70%',
+								selectedRowHighlight: 'rgba(100, 225, 100, .75)',
+								showLoadingWhenSwitchingRecords: false
+							},
+
+							table: {
+								dbid: 'bpa9avjdy',
+								fids: {
+									facilityName: 6,
+									stayLength: 13,
+									scheduledDCDate: 14,
+									medicaidPickupDate: 25,
+									income: 29,
+									partyHandlingMCDApp: 31,
+									referToSPS: 32,
+									numOfTasks: 92,
+									coinsuranceCovered: 96,
+									spentDown: 133,
+									lastName: 134,
+									firstName: 137,
+									newNote: 169,
+									prevNote: 180,
+									hasMedicaid: 186,
+									status: 208,
+									payerName: 211,
+									admissionDate: 213,
+									payerType: 214,
+									status: 271,
+									trackStatus: 276,
+									exclaimation: 277,
+									mcdCW: 278,
+									spousalCase: 280,
+									directDeposit: 281,
+									taskName: 305,
+									maxBOMUser: 306,
+									taskDescription: 332,
+									otherTaskAssignee: 333,
+									latestTaskName: 335,
+									twoX: 349,
+									currentUser: 360,
+									payerTypeMapping: 366,
+									payerNameMapping: 368
+								},
+								query: "{'8'.XEX.'Test'}", // "{'8'.XEX.'Test'}AND{'291'.EX.'Genesis'}AND{'294'.EX.'Connecticut'}", //"{'3'.EX.'26041'}OR{'3'.EX.'26042'}", //
+								slist: '8.9',
+								options: 'sortorder-AA',
+								fieldLabels: {
+									twoX: '2x',
+									lastName: 'Last Name',
+									firstName: 'First Name',
+									status: 'Status',
+									admissionDate: 'Admission Date',
+									scheduledDCDate: 'Sched D/C Date',
+									stayLength: 'Stay length',
+									payerTypeMapping: 'Payer Type',
+									payerNameMapping: 'Payer Name',
+									hasMedicaid: 'Has Medicaid',
+									medicaidPickupDate: 'Medicaid Pickup Date',
+									trackStatus: 'Track Status',
+									partyHandlingMCDApp: 'Party Handling MCD App',
+									coinsuranceCovered: 'Coinsurance Covered',
+									newNote: 'New Note',
+									prevNote: 'Prev Note 1',
+									taskName: 'Task Name',
+									taskDescription: 'Task Description',
+									otherTaskAssignee: 'Other Task Assignee',
+									latestTaskName: 'Latest Task Name',
+									numOfTasks: '# of Tasks',
+									exclaimation: '!',
+									mcdCW: 'MCD CW',
+									directDeposit: 'Direct Deposit',
+									income: 'Income',
+									spentDown: 'Spent Down',
+									spousalCase: 'Spousal Case'
+								},
+								reportColumns: [
+									'twoX',
+									'lastName',
+									'firstName',
+									'status',
+									'admissionDate',
+									'scheduledDCDate',
+									'stayLength',
+									'payerTypeMapping',
+									'payerNameMapping',
+									'hasMedicaid',
+									'medicaidPickupDate',
+									'trackStatus',
+									'partyHandlingMCDApp',
+									'coinsuranceCovered',
+									'newNote',
+									'prevNote',
+									'taskName',
+									'taskDescription',
+									'otherTaskAssignee',
+									'latestTaskName',
+									'numOfTasks',
+									'exclaimation',
+									'mcdCW',
+									'directDeposit',
+									'income',
+									'spentDown',
+									'spousalCase'
+								]
+							},
+
+							filters: [{
+								label: 'Facility Group',
+								type: 'select',
+								multiple: true,
+								multipleSelectContainer: '.filter-container-0',
+								multipleSelectOptions: {
+								    displayDelimiter: ', ',
+								    displayTitle: true,
+								    showClear: true
+								},
+								data: {
+									queryValueType: 'dynamic',
+									query: {
+										dbid: 'bpa9avjea',
+										query: "{'6'.XEX.''}",
+										fids: {
+											value: 6,
+											label: 6
+										},
+										slist: 6,
+										options: 'sortorder-A'
+									}
+								},
+								mapToFID: 291
+							}, {
+								label: 'Facility Name',
+								type: 'select',
+								multiple: true,
+								multipleSelectContainer: '.filter-container-0',
+								multipleSelectOptions: {
+								    displayDelimiter: ', ',
+								    displayTitle: true,
+								    showClear: true
+								},
+								data: {
+									queryValueType: 'dynamic',
+									query: {
+										dbid: 'bpcc5w5ck',
+										query: "{'6'.XEX.''}",
+										fids: {
+											value: 6,
+											label: 6
+										},
+										slist: 6,
+										options: 'sortorder-A'
+									}
+								},
+								mapToFID: 6
+							}, {
+								label: 'Payer Type',
+								type: 'select',
+								multiple: true,
+								multipleSelectContainer: '.filter-container-1',
+								multipleSelectOptions: {
+								    displayDelimiter: ', ',
+								    displayTitle: true,
+								    showClear: true
+								},
+								data: {
+									queryValueType: 'dynamic',
+									query: {
+										dbid: 'brd9z7q7n',
+										query: "{'8'.XEX.''}",
+										fids: {
+											value: 8,
+											label: 8,
+											// related: 8 // foreign key in this child table
+										},
+										slist: 8,
+										options: 'sortorder-A'
+									}
+								},
+								mapToFID: 366,
+								// relatedTo: 0 // position of the field
+							}, {
+								label: 'Status',
+								type: 'select',
+								multiple: true,
+								multipleSelectContainer: '.filter-container-2',
+								multipleSelectOptions: {
+								    displayDelimiter: ', ',
+								    displayTitle: true,
+								    showClear: true
+								},
+								data: {
+									queryValueType: 'dynamic',
+									query: {
+										dbid: 'brd928pj5',
+										query: "{'6'.XEX.''}",
+										fids: {
+											value: 6,
+											label: 6
+										},
+										slist: 6,
+										options: 'sortorder-A'
+									}
+								},
+								mapToFID: 208
+							}, {
+								label: 'Refer to SPS',
+								type: 'select',
+								multiple: true,
+								multipleSelectContainer: '.filter-container-3',
+								multipleSelectOptions: {
+								    displayDelimiter: ', ',
+								    displayTitle: true,
+								    showClear: true
+								},
+								data: {
+									queryValueType: 'prefilled',
+									query: {
+										dbid: 'bpa9avjdy',
+										fid: 32
+									}
+								},
+								mapToFID: 32
+							}],
+
+							addRecord: {
+								options: {
+									labelLocation: 'above',
+									saveBlankValues: false,
+									saveResults: true,
+									sectionType: 'flex'
+								},
+								data: {},
+								addToDBID: [{
+									dbid: 'bpa9avjdy',
+									recordid: '%_rid_%',
+								}, {
+									dbid: 'bpa9avjd5',
+									recordid: -1
+								}, {
+									dbid: 'bpa9avjd5',
+									recordid: -2
+								}, {
+									dbid: 'bpa9avjd5',
+									recordid: -3
+								}],
+								fields: [{ // 0
+									label: 'First Name',
+									type: 'text',
+									dbid: 'bpa9avjdy',
+									mapToFID: 137,
+									lineBreak: false
+								}, { // 1
+									label: 'Last Name',
+									type: 'text',
+									dbid: 'bpa9avjdy',
+									mapToFID: 134
+								}, { // 2
+									label: 'Admission Date',
+									type: 'datepicker',
+									dbid: 'bpa9avjdy',
+									editable: false,
+									saveable: false,
+									mapToFID: 213,
+									lineBreak: false
+								}, { // 3
+									label: 'Scheduled Discharge Date',
+									type: 'datepicker',
+									dbid: 'bpa9avjdy',
+									mapToFID: 14
+								}, { // 4
+									label: 'Stay Length',
+									type: 'select',
+									data: {
+										queryValueType: 'prefilled',
+										query: {
+											dbid: 'bpa9avjdy',
+											fid: 13
+										}
+									},
+									dbid: 'bpa9avjdy',
+									mapToFID: 13
+								}, { // 5
+									label: 'Has Medicaid',
+									type: 'checkbox',
+									dbid: 'bpa9avjdy',
+									mapToFID: 186,
+									lineBreak: false
+								}, { // 6
+									label: 'Medicaid Pickup Date',
+									type: 'datepicker',
+									dbid: 'bpa9avjdy',
+									mapToFID: 25
+								}, { // 7
+									label: 'Party Handling Medicaid App',
+									type: 'text',
+									dbid: 'bpa9avjdy',
+									mapToFID: 31
+								}, { // 8
+									label: 'Coinsurance Covered',
+									type: 'select',
+									data: {
+										queryValueType: 'prefilled',
+										query: {
+											dbid: 'bpa9avjdy',
+											fid: 96
+										}
+									},
+									dbid: 'bpa9avjdy',
+									mapToFID: 96
+								}, { // 9
+									label: 'MCD CW',
+									type: 'text',
+									dbid: 'bpa9avjdy',
+									mapToFID: 278
+								}, { // 10
+									label: '! (Hot Lead)',
+									type: 'checkbox',
+									dbid: 'bpa9avjdy',
+									mapToFID: 277,
+									lineBreak: false
+								}, { // 11
+									label: 'Income',
+									type: 'number',
+									dbid: 'bpa9avjdy',
+									mapToFID: 29
+								}, { // 12
+									label: 'Direct Deposit',
+									type: 'checkbox',
+									dbid: 'bpa9avjdy',
+									mapToFID: 281,
+									lineBreak: false
+								}, { // 13
+									label: 'Spent Down',
+									type: 'checkbox',
+									dbid: 'bpa9avjdy',
+									mapToFID: 133,
+									lineBreak: false
+								}, { // 14
+									label: 'Spousal Case',
+									type: 'checkbox',
+									dbid: 'bpa9avjdy',
+									mapToFID: 280
+								}, { // 15
+									label: 'New Note',
+									type: 'textarea',
+									dbid: 'bpa9avjdy',
+									mapToFID: 169
+								}, { // 16
+									label: 'Task 1',
+									type: 'section-heading'
+								}, { // 17
+									label: 'Related Resident',
+									type: 'hidden',
+									data: {
+										default: function(record){
+											return record[3];
+										}
+									},
+									dbid: 'bpa9avjd5',
+									recordid: -1,
+									mapToFID: 16
+								}, { // 18
+									label: 'Related Task Status Mapping',
+									type: 'select',
+									data: {
+										queryValueType: 'dynamic',
+										query: {
+											dbid: 'bp9fjhey3',
+											fids: {
+												value: 3,
+												label: 10,
+												assignee: 11,
+												priority: 15,
+												followUpDays: 17
+											},
+											slist: 10,
+											options: 'sortorder-A'
+										}
+									},
+									onChange: function(record){
+										var field = this.fields[18],
+											value = field.$input.val(),
+											selectedI = indexOfObj(field.settings.data.values, 'rid', +value);
+
+										if(selectedI === -1){
+											this.fields[18].settings.required = false;
+											this.fields[20].settings.required = false;
+											this.fields[21].settings.required = false;
+											this.fields[22].settings.required = false;
+
+											return;
+										}
+
+										this.fields[18].settings.required = true;
+										this.fields[20].settings.required = true;
+										this.fields[21].settings.required = true;
+										this.fields[22].settings.required = true;
+
+										var selected = field.settings.data.values[selectedI],
+											assignee = '';
+
+										switch(selected.assignee){
+											case 'BOM':
+												assignee = record[306];
+											break;
+											case 'Tracker':
+												assignee = record[360];
+											break;
+										}
+
+										if(selected.followUpDays){
+											var dateDue = QBField.moment(),
+												left = 0 + selected.followUpDays;
+
+											while(left > 0){
+												dateDue.add(1, 'days');
+
+												while([0, 6].indexOf(dateDue.day()) !== -1){
+													dateDue.add(1, 'days');
+												}
+
+												--left;
+											}
+
+											this.fields[20].$input.val(dateDue.format('MM-DD-YYYY'));
+										}
+
+										this.fields[21].$input.val(assignee);
+										this.fields[22].$input.val(selected.priority);
+									},
+									dbid: 'bpa9avjd5',
+									recordid: -1,
+									mapToFID: 85
+								}, { // 19
+									label: 'Task Description',
+									type: 'textarea',
+									dbid: 'bpa9avjd5',
+									recordid: -1,
+									mapToFID: 78
+								}, { // 20
+									label: 'Date Due',
+									type: 'datepicker',
+									mapToFID: 9,
+									dbid: 'bpa9avjd5',
+									recordid: -1
+								}, { // 21
+									label: 'User Assignee',
+									type: 'select',
+									data: {
+										queryValueType: 'users',
+										query: {
+											appid: 'bpa9avjds'
+										}
+									},
+									mapToFID: 61,
+									dbid: 'bpa9avjd5',
+									recordid: -1
+								}, { // 22
+									label: 'Priority',
+									type: 'select',
+									data: {
+										queryValueType: 'prefilled',
+										query: {
+											dbid: 'bpa9avjd5',
+											fid: 12
+										}
+									},
+									mapToFID: 12,
+									dbid: 'bpa9avjd5',
+									recordid: -1
+								}, { // 23
+									label: 'Task 2',
+									type: 'section-heading'
+								}, { // 24
+									label: 'Related Resident',
+									type: 'hidden',
+									data: {
+										default: function(record){
+											return record[3];
+										}
+									},
+									dbid: 'bpa9avjd5',
+									recordid: -2,
+									mapToFID: 16
+								}, { // 25
+									label: 'Related Task Status Mapping',
+									type: 'select',
+									data: {
+										queryValueType: 'dynamic',
+										query: {
+											dbid: 'bp9fjhey3',
+											fids: {
+												value: 3,
+												label: 10,
+												assignee: 11,
+												priority: 15,
+												followUpDays: 17
+											},
+											slist: 10,
+											options: 'sortorder-A'
+										}
+									},
+									onChange: function(record){
+										var field = this.fields[25],
+											value = field.$input.val(),
+											selectedI = indexOfObj(field.settings.data.values, 'rid', +value);
+
+										if(selectedI === -1){
+											this.fields[25].settings.required = false;
+											this.fields[27].settings.required = false;
+											this.fields[28].settings.required = false;
+											this.fields[29].settings.required = false;
+
+											return;
+										}
+
+										this.fields[25].settings.required = true;
+										this.fields[27].settings.required = true;
+										this.fields[28].settings.required = true;
+										this.fields[29].settings.required = true;
+
+										var selected = field.settings.data.values[selectedI],
+											assignee = '';
+
+										switch(selected.assignee){
+											case 'BOM':
+												assignee = record[306];
+											break;
+											case 'Tracker':
+												assignee = record[360];
+											break;
+										}
+
+										if(selected.followUpDays){
+											var dateDue = QBField.moment(),
+												left = 0 + selected.followUpDays;
+
+											while(left > 0){
+												dateDue.add(1, 'days');
+
+												while([0, 6].indexOf(dateDue.day()) !== -1){
+													dateDue.add(1, 'days');
+												}
+
+												--left;
+											}
+
+											this.fields[27].$input.val(dateDue.format('MM-DD-YYYY'));
+										}
+
+										this.fields[28].$input.val(assignee);
+										this.fields[29].$input.val(selected.priority);
+									},
+									dbid: 'bpa9avjd5',
+									recordid: -2,
+									mapToFID: 85
+								}, { // 26
+									label: 'Task Description',
+									type: 'textarea',
+									dbid: 'bpa9avjd5',
+									recordid: -2,
+									mapToFID: 78
+								}, { // 27
+									label: 'Date Due',
+									type: 'datepicker',
+									mapToFID: 9,
+									dbid: 'bpa9avjd5',
+									recordid: -2
+								}, { // 28
+									label: 'User Assignee',
+									type: 'select',
+									data: {
+										queryValueType: 'users',
+										query: {
+											appid: 'bpa9avjds'
+										}
+									},
+									mapToFID: 61,
+									dbid: 'bpa9avjd5',
+									recordid: -2
+								}, { // 29
+									label: 'Priority',
+									type: 'select',
+									data: {
+										queryValueType: 'prefilled',
+										query: {
+											dbid: 'bpa9avjd5',
+											fid: 12
+										}
+									},
+									mapToFID: 12,
+									dbid: 'bpa9avjd5',
+									recordid: -2
+								}, { // 30
+									label: 'Task 3',
+									type: 'section-heading'
+								}, { // 31
+									label: 'Related Resident',
+									type: 'hidden',
+									data: {
+										default: function(record){
+											return record[3];
+										}
+									},
+									dbid: 'bpa9avjd5',
+									recordid: -3,
+									mapToFID: 16
+								}, { // 32
+									label: 'Related Task Status Mapping',
+									type: 'select',
+									data: {
+										queryValueType: 'dynamic',
+										query: {
+											dbid: 'bp9fjhey3',
+											fids: {
+												value: 3,
+												label: 10,
+												assignee: 11,
+												priority: 15,
+												followUpDays: 17
+											},
+											slist: 10,
+											options: 'sortorder-A'
+										}
+									},
+									onChange: function(record){
+										var field = this.fields[32],
+											value = field.$input.val(),
+											selectedI = indexOfObj(field.settings.data.values, 'rid', +value);
+
+										if(selectedI === -1){
+											this.fields[32].settings.required = false;
+											this.fields[34].settings.required = false;
+											this.fields[35].settings.required = false;
+											this.fields[36].settings.required = false;
+
+											return;
+										}
+
+										this.fields[32].settings.required = true;
+										this.fields[34].settings.required = true;
+										this.fields[35].settings.required = true;
+										this.fields[36].settings.required = true;
+
+										var selected = field.settings.data.values[selectedI],
+											assignee = '';
+
+										switch(selected.assignee){
+											case 'BOM':
+												assignee = record[306];
+											break;
+											case 'Tracker':
+												assignee = record[360];
+											break;
+										}
+
+										if(selected.followUpDays){
+											var dateDue = QBField.moment(),
+												left = 0 + selected.followUpDays;
+
+											while(left > 0){
+												dateDue.add(1, 'days');
+
+												while([0, 6].indexOf(dateDue.day()) !== -1){
+													dateDue.add(1, 'days');
+												}
+
+												--left;
+											}
+
+											this.fields[34].$input.val(dateDue.format('MM-DD-YYYY'));
+										}
+
+										this.fields[35].$input.val(assignee);
+										this.fields[36].$input.val(selected.priority);
+									},
+									dbid: 'bpa9avjd5',
+									recordid: -3,
+									mapToFID: 85
+								}, { // 33
+									label: 'Task Description',
+									type: 'textarea',
+									dbid: 'bpa9avjd5',
+									recordid: -3,
+									mapToFID: 78
+								}, { // 34
+									label: 'Date Due',
+									type: 'datepicker',
+									mapToFID: 9,
+									dbid: 'bpa9avjd5',
+									recordid: -3
+								}, { // 35
+									label: 'User Assignee',
+									type: 'select',
+									data: {
+										queryValueType: 'users',
+										query: {
+											appid: 'bpa9avjds'
+										}
+									},
+									mapToFID: 61,
+									dbid: 'bpa9avjd5',
+									recordid: -3
+								}, { // 36
+									label: 'Priority',
+									type: 'select',
+									data: {
+										queryValueType: 'prefilled',
+										query: {
+											dbid: 'bpa9avjd5',
+											fid: 12
+										}
+									},
+									mapToFID: 12,
+									dbid: 'bpa9avjd5',
+									recordid: -3
+								}]
+							},
+							callback: function(){
+								QBbusy();
+
+								window.location.href = 'https://scs.quickbase.com/db/bpa9avjds';
+							},
+							cancelCallback: function(){
+								QBbusy();
+
+								window.location.href = 'https://scs.quickbase.com/db/bpa9avjds';
+							}
+						},
+						dependencies: []
+					}
+				};
+
+				init();
+			});
+		});
+	</script>
+</head>
+<body>
+</body>
+</html>
